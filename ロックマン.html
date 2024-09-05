@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>雪の舞う動画</title>
+  </head>
+  <body>
+    <div class="snowbox">
+     <span class="snow"></span>  <span class="snow"></span>
+     <span class="snow"></span>  <span class="snow"></span>
+     <span class="snow"></span>  <span class="snow"></span>
+     <span class="snow"></span>  <span class="snow"></span>
+     <span class="snow"></span>  <span class="snow"></span>
+    </div>
+    <div class="rockmanbox">
+      <img id="rockman" src="ロックマン.png" alt="ロックマン">
+      <div class="baster"></div>
+    </div>
+   
+    <div>
+      <img id="metto" src="メットール.png" alt="メットール">
+      <img id="metto2" src="メットール.png"alt="メットール" width="170px"></div>
+      <img id="iceman" src="アイスマン.png" alt="アイスマン">
+      <img id="asiba1" src="ロックマン　足場.png">
+      <img id="asiba2" src="ロックマン　足場.png">
+      <img id="woodman" src="wood-man-670x536.png">
+      <img id="wairi" src="ワイリー.png">
+      <img id="sord" src="剣.png" alt="剣">
+     </div>
+
+    <p class="woodText">
+      ウッドマンが現れた！
+    </p>
+  
+ <style>
+  body{background-image: url(雪景色.jpg);
+      background-size: cover;
+      position: relative;}
+  .snow{ background-color: rgb(242, 246, 240);
+       border-radius: 50%;
+       width: 15px; height: 15px;
+      position: absolute;
+      top: 0px;
+      animation: yuki 10s linear infinite;}
+  .snow:nth-child(1) {left: 5%;} .snow:nth-child(2) {left: 15%;} 
+  .snow:nth-child(3) {left: 27%;} .snow:nth-child(4) {left: 35%;}
+  .snow:nth-child(5) {left: 48%;} .snow:nth-child(6) {left: 55%;}  
+  .snow:nth-child(7) {left: 66%;} .snow:nth-child(8) {left: 76%;}
+  .snow:nth-child(9) {left: 85%;} .snow:nth-child(10) {left: 90%;} 
+  
+  .snow:nth-child(even) {/* 偶数番号の雪の粒は遅く落ちる */
+      animation-name: yuki;
+      animation-duration:14s;}
+  @keyframes yuki{
+    0%{opacity: 0;}
+    10%{opacity: 0.3;}
+    30%{opacity: 1;}
+    90%{opacity: 1;}
+    100%{opacity:0; top: 100vh;}
+  }
+
+   #metto{ width: 170px; position: relative; left: 400px; top: 500px;
+      animation-name: met;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;}
+   @keyframes met{40%{left: 200px;;}
+     80%{left: 400px;} 
+     100%{left: 200px;}
+     }
+   #metto2{position: relative; left: 700px; top: 560px;
+    animation-name: met; animation-duration: 25s;
+      animation-iteration-count: infinite;}
+    #sord{width: 150px; position: absolute; left: 400px; top: 5px;
+         animation-name: fallsord; animation-duration: 10s;
+        animation-iteration-count: infinite;}
+    @keyframes fallsord{
+      50%{top: 200px;} 100%{top: 400px;}
+      }
+
+  #rockman{position: absolute; top: 300px; left: 30px;  
+    width: 200px;
+    animation: rockMoving 5s 2s infinite,rockRiseup 1s;}
+  @keyframes rockRiseup {
+  0%{transform: translate(-100px,400px); }
+  100% {transform: translate(0,0);} 
+}
+  @keyframes rockMoving{
+    30%{transform: translate(-70px,0);}
+    50%{transform: translate(0,70px);}
+    70%{transform: translate(80px,0);} 
+    95%{transform: translate(-40px,-50px);}}
+
+  .baster{position: absolute; top: 350px; left: 200px; 
+       background-color: rgb(28, 4, 136);
+       border: 3px solid #DDFFFF;
+       border-radius: 50%;
+       z-index: 1;
+       width: 20px; height: 20px;
+       visibility: hidden;
+       animation:beam 3s 3s infinite;
+       }
+
+  @keyframes beam{
+    0%{visibility: visible;}
+    90%{left: 1400px; top: 350px;}
+  }
+
+  #iceman{position: relative; left: 900px; top: 250px;
+          opacity: 0;
+          transition: opacity 2s ease;
+          animation: moving 3s linear ;
+          animation-iteration-count: infinite;
+        }
+  @keyframes moving {
+  0%, 100% {transform: translateX(0);}
+  40% {transform: translateX(-300px);}
+  70% {transform: translate(-100px,100px);}
+  90% {transform: translate(100px);}
+}
+.woodText{position: relative;
+  top: -250px; left: 800px; 
+  font-size: 40px; font-weight: bold;
+  color: rgb(229, 217, 203);  visibility: hidden;
+  text-shadow: 0 1px 5px #632803,2px 3px 5px #301302,3px 4px 5px #a34307;
+  animation-name: woodTextAppear;
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+@keyframes woodTextAppear{
+  0% {visibility: visible;
+    transform: scale(0.5);}
+  50% {transform: scale(1);}
+  80%{opacity: 1;}
+  100% {visibility: hidden;
+  opacity: 0;}
+}
+
+#woodman{position: relative;
+   top: 60px; left: 800px;
+   width: 250px; opacity: 0;
+   z-index: 2;
+  animation-name: woodBack;
+  animation-duration: 8s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;}
+@keyframes woodBack {
+  0% { transform: translate(100px,-300px); 
+      opacity: 1;}
+  4%{transform: translate(0px,0px);}
+  6%{transform: translate(-30px,-30px);}
+  10%,40%{transform: translate(-30px,0px);}
+  50% { transform: translate(50px,0) ;}
+  70% { transform: translateX(120px) rotate(45deg);}
+  80% { transform: translateX(200px) rotate(0deg);}
+  85% {transform: translateX(300px) rotate(45deg);}
+  88% { transform: translate(300px,300px) rotate(360deg);}
+  90% {opacity: 0.8;}
+  100%{transform: translate(300px,600px);
+    opacity: 0;}
+}
+
+#asiba1{position: absolute;
+   top: 200px; left: 1200px;
+   width: 500px;}
+#asiba2{position: absolute;
+    left: 1100px;
+    top: 200px;
+    width: 500px;
+}
+#wairi{position: absolute;
+  top: 10px;
+  right: 50px;
+  opacity: 0;
+  animation:entry 4s 9s;
+}
+
+@keyframes entry{   
+  0% {opacity: 0.2;}
+  40%{opacity: 1; transform: translate(0);}
+  60%{transform: translate(-80px,120px)}
+  90%{opacity: 0.9;}
+  100%{transform: translateX(-300px);
+    opacity: 0;}
+}
+@keyframes wairiAgain{   /*JavaScriptで起動*/
+  30%{transform: translateY(150px);}
+  50%{transform: translate(100px,80px)
+    rotate(-540deg);}
+  70%{transform: translate(100px,110px)rotate(-480deg);}
+  100%{transform: rotate(0deg);}
+}
+ </style>
+
+<script>
+  //ロックマンがビームを打つアニメーション
+  function createBeam() {
+    const beam = document.createElement("div");
+    beam.className = "baster";
+    document.body.appendChild(beam);
+    
+    setTimeout(function() {beam.remove();}, 6000);
+    }
+
+    setInterval(createBeam, 500); 
+
+    const icemanappear = document.getElementById("iceman")
+    setTimeout(function(){
+      icemanappear.style.opacity=1;
+    },1500);
+
+//ウッドマンが赤に変わるアニメーション
+const woodman = document.getElementById("woodman")
+setTimeout(function(){woodman.src= 'http://xs311218.xsrv.jp/sample/wp-content/uploads/2024/09/wood-man-red.png'
+}, 6000); // 6秒後に画像を差し替え
+
+
+//ワイリーの出現アニメーション
+const wairi = document.getElementById("wairi")
+function wairiAppear() {
+  setTimeout(function() {
+    wairi.style.opacity = 1;
+    wairi.style.left = "40%";
+    wairi.style.top = "3%";
+    wairi.style.animation = "entry 4s 9s, wairiAgain 3s 2s linear infinite"; // 既存のアニメーションに追加
+  }, 14000);
+}
+ wairiAppear();
+
+ </script>
+ </body>
+</html>  
