@@ -23,7 +23,7 @@
       <img id="iceman" src="アイスマン.png" alt="アイスマン">
       <img id="asiba1" src="ロックマンー足場.png">
       <img id="asiba2" src="ロックマンー足場.png">
-      <img id="woodman" src="wood-man-670x536.png">
+      <img id="woodman" src="https://kyo-frontend.github.io/rockman-battle/wood-man-670x536.png">
       <img id="wairi" src="ワイリー.png">
       <img id="sord" src="剣.png" alt="剣">
      </div>
@@ -210,7 +210,8 @@
 
 //ウッドマンが赤に変わるアニメーション
 const woodman = document.getElementById("woodman")
-setTimeout(function(){woodman.src= 'http://xs311218.xsrv.jp/sample/wp-content/uploads/2024/09/wood-man-red.png'
+setTimeout(function(){woodman.src= 
+  'https://kyo-frontend.github.io/rockman-battle/wood-man-red.png'
 }, 6000); // 6秒後に画像を差し替え
 
 
@@ -221,7 +222,7 @@ function wairiAppear() {
     wairi.style.opacity = 1;
     wairi.style.left = "40%";
     wairi.style.top = "3%";
-    wairi.style.animation = "entry 4s 9s, wairiAgain 3s 2s linear infinite"; // 既存のアニメーションに追加
+    wairi.style.animation = "entry 4s 9s, wairiAgain 4s 2s linear infinite"; // 既存のアニメーションに追加
   }, 14000);
 }
  wairiAppear();
